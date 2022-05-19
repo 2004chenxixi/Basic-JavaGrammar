@@ -1,5 +1,9 @@
 package BasicDataTypeChangePackage;
-
+ /*
+ 总结：(基本数据类型<-->包装类) <---> String  [三种类型的转化]
+ (基本数据类型<-->包装类)--这个直接转
+ String --ValueOf和Parse
+  */
 /*
 (基本数据类型<-->包装类) <---> String  [三种类型的转化]
 在包装类中，大家都变成了类
