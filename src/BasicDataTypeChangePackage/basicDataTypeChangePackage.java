@@ -1,7 +1,7 @@
 package BasicDataTypeChangePackage;
  /*
  总结：(基本数据类型<-->包装类) <---> String  [三种类型的转化]
- (基本数据类型<-->包装类)--这个直接转
+ (基本数据类型<-->包装类)--这个直 接转
  String --ValueOf和Parse
   */
 /*
@@ -19,6 +19,7 @@ public class basicDataTypeChangePackage {
 
     //1--这个是基本数据类型---->包装类
     //用Integer.valueOf()  来转化
+
     public void WrapperTest() {
         int number1 = 10; //这个是基本数据类型
         Integer number2 = Integer.valueOf(number1);
