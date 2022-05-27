@@ -5,6 +5,7 @@ package _366After.src.javeTeacher.abnormalProblem;
 1-继承异常结果： RuntimeException、Exception
 2-提供全局常量：serialVersionUID
 3-重载构造器
+
  */
 public class Exception extends RuntimeException {
 
