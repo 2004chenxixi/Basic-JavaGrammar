@@ -1,4 +1,4 @@
-package _366After.src.javeTeacher.thread_learn;
+package _366After.src.javeTeacher.thread_learn.thread_learn_3;
 
 /**
  * （一）测试Thread中常用的方法：
@@ -52,7 +52,7 @@ class MyThread extends Thread {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println(Thread.currentThread().getName() + ":" + i);
+                System.out.println(Thread.currentThread().getName() + Thread.currentThread().getPriority() + ":" + i + "wsT1");
             }
             if (i % 30 != 0) {
                 //这里使用yield，
@@ -70,23 +70,27 @@ public class thread_learn_3 {
 
         //*附加——给（小）线程起名字
         T1.setName("我是一个小线程");
+        //todo  是不是（分线程和主线程的引入方式不同）
+        //设置(分线程)的优先级
+        T1.setPriority(Thread.MAX_PRIORITY);
 
         //4- 通过此对象调用start（）
         T1.start();
-
+//______________________________________________——————————————————
         //**附加：给主线程起名字
         Thread.currentThread().setName("我是主线程");
+        //todo
+        //设置（主线程）的优先级
+        Thread.currentThread().setPriority(Thread.MIN_PRIORITY);
 
         for (int i = 0; i < 100; i++) {
             if (i % 2 != 0) {
 
-                System.out.println(Thread.currentThread().getName() + ":" + i);
+                System.out.println(Thread.currentThread().getName() + Thread.currentThread().getPriority() + ":" + i);
             }
             if (i == 90) {
                 try {
-                    //todo
-                    //join,为什么在上面调不了
-                    T1.join();
+                    T1.join(); //这个是把T1，插队进来的意思
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
