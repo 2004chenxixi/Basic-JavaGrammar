@@ -8,5 +8,8 @@ package _366After.src.javeTeacher.abnormalProblem;
  * 3-要是自己手动抛出异常： throw new +XXXX（ 前提自己写一个异常类）
  */
 public class AbnormalProblem {
+
 }
+
+
 
