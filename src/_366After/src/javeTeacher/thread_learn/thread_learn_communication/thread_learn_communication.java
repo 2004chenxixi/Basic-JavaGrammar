@@ -5,14 +5,19 @@ package _366After.src.javeTeacher.thread_learn.thread_learn_communication;
  */
 class Number implements Runnable {
     private int number = 1;
+    //如果要使用obj，那么下面的notifyAll和wait--也要是obj的
     private Object obj = new Object();
 
     @Override
     public void run() {
         while (true) {
-            synchronized (this) {
+            // synchronized (this) {
+            synchronized (obj) {
+
                 //和wait合用，每次解锁一下
-                notifyAll();
+
+                //notifyAll();
+                obj.notifyAll();
                 if (number < 100) {
                     try {
                         Thread.sleep(100);
@@ -24,7 +29,8 @@ class Number implements Runnable {
 
                     try {
                         //wait(阻塞)
-                        wait();
+                        //wait();
+                        obj.wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
