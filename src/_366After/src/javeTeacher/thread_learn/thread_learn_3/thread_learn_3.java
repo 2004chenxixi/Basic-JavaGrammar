@@ -70,6 +70,7 @@ public class thread_learn_3 {
 
         //*附加——给（小）线程起名字
         T1.setName("我是一个小线程");
+
         //todo  是不是（分线程和主线程的引入方式不同）
         //设置(分线程)的优先级
         T1.setPriority(Thread.MAX_PRIORITY);
