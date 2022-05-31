@@ -1,47 +1,48 @@
 package _366After.src.javeTeacher.thread_learn.thread_learn_security;
-/*
-这个安全性--->解决了；代码重复
 
-方式一、同步代码块
-      同步监视器（一直用这一个就可以了）：Object  obj = new  Object();
+import java.util.concurrent.locks.ReentrantLock;
 
-     synchronized(同步监视器){
-     //需要被同步的代码，（一般都是---操作的步骤）
-     }
+class Window implements Runnable {
 
-方式二、同步方法
-略
-
-
-方法三、Lock锁（在thread_learn_security_lock里）
-
-
-
- */
-
-class Mythread implements Runnable {
     private int ticket = 100;
-    Object obj = new Object();
+    //多引入这个---ReentrantLock
+    private ReentrantLock lock = new ReentrantLock();
 
     @Override
     public void run() {
-        synchronized (obj) {
-            while (true) {
+        while (true) {
+            //多加一个try--和下面finally连用
+            try {
+                //调用lock（）上锁
+                lock.lock();
+
                 if (ticket > 0) {
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     System.out.println(Thread.currentThread().getName() + ":" + ticket);
                     ticket--;
                 } else {
                     break;
                 }
+            } finally {
+                //解锁
+                lock.unlock();
+
             }
+
         }
+
+
     }
 }
 
-public class thread_learn_security {
+public class thread_learn_security_lock {
     public static void main(String[] args) {
-        Mythread w = new Mythread();
-        //将new的放入--Thread（自带）的构造器中
+        Window w = new Window();
+
         Thread t1 = new Thread(w);
         Thread t2 = new Thread(w);
         Thread t3 = new Thread(w);

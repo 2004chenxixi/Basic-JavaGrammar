@@ -1,4 +1,4 @@
-package _366After.src.javeTeacher.thread_learn.thread_learn_project_4;
+package _366After.src.javeTeacher.thread_learn.thread_learn_project_ticket;
 
 //------------------------------>这个是（继承）的项目
 //用synchronized来解决--安全性
