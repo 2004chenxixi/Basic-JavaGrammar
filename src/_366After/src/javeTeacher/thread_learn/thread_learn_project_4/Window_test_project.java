@@ -1,19 +1,32 @@
 package _366After.src.javeTeacher.thread_learn.thread_learn_project_4;
 
-
+//------------------------------>这个是（继承）的项目
+//用synchronized来解决--安全性
 /*
+
 创建3个窗口，卖票，总数--100张
  */class Window extends Thread {
     private static int ticket = 100;
+    //这个Object要变成static
+    private static Object obj = new Object();
 
     @Override
     public void run() {
+
+
         while (true) {
-            if (ticket > 0) {
-                System.out.println(getName() + ":买票，票号为：" + ticket);
-                ticket--;
-            } else {
-                break;
+            synchronized (obj) {
+                if (ticket > 0) {
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println(getName() + ":买票，票号为：" + ticket);
+                    ticket--;
+                } else {
+                    break;
+                }
             }
         }
     }

@@ -3,6 +3,7 @@ package _366After.src.javeTeacher.thread_learn.thread_learn_4_new;
 和前面的123-不同
 前面用的是（继承）
 这里用的是（实现）
+423
  */
 
 class Mythread implements Runnable {
