@@ -10,7 +10,7 @@
 
 2- 实现  implements Runnable（4）   this
 
-3-Callable（略）
+3-Callable implements Callable
 
 4- 使用线程池
 

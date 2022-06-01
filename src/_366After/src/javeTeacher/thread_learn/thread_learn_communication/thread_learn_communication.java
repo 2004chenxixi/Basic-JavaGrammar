@@ -1,7 +1,7 @@
 package _366After.src.javeTeacher.thread_learn.thread_learn_communication;
 
 /*
-通信--可以让用户，交替打印
+通信--可以让用户，共享数据
  */
 class Number implements Runnable {
     private int number = 1;
