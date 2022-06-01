@@ -136,13 +136,30 @@ public class Commonly_used_StringFunc {
         Integer I = Integer.parseInt(str1); //String --> Integer
         String s = String.valueOf(number);  //int --> String
 
-        //26- String -- > char[]   (便利String的每个元素)
+        //26- String -- > char[]   (便利String的每个元素).toCharArray()
         String str2 = "532nsfdsfsa";
         char[] c = str2.toCharArray();
         for (int j = 0; j < str2.length(); j++) {
-            System.out.println(c[j]);
+            System.out.println("我是String -- > char[]  ： " + c[j]);
         }
 
+        //26.5- char[] --> String
+        char[] chars = new char[]{'c', 'h', 'e', 'n'};
+        String s1 = new String(chars);
+        System.out.println("我是char[] --> String  ： " + s1);
+
+/*
+编码：看的懂 --> 变成看不懂
+解码：看不懂 --> 看的懂
+ */
+        //27- String -- > byte[]  (出来的是，字符码) ======编码
+        String str3 = "534jkjdak";
+        byte[] b = str3.getBytes();
+        System.out.println("我是String -- > byte[]  ： " + b);
+
+        //27.5  byte[] --> String  ========解码
+        String s2 = new String(b);
+        System.out.println("我是 byte[] --> String ： " + s2);
 
     }
 }
