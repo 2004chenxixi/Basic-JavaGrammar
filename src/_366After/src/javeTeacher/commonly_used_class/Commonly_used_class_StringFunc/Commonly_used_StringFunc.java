@@ -76,6 +76,27 @@ public class Commonly_used_StringFunc {
         boolean b2 = string19.startsWith("chen");
         System.out.println("我是用来判断，是否以什么来开头的： " + b2);
 
+        //18- 是否以（xxx自定义）开头的---Boolean类型
+        String string20 = "chenxixi";
+        //string20，下标为2的元素，是否为en开头
+        boolean b3 = string20.startsWith("en", 2);
+        System.out.println("我是用来判断，(自定义的开头)是否存在，这个值： " + b3);
+
+        //19- 判断21是否包含22
+        String string21 = "chenxixoo";
+        String string22 = "x";
+        boolean b4 = string21.contains(string22);
+        System.out.println("我是用来判断，21 是否包含 22： " + b4);
+
+        //20- 寻找，并给出索引位置, 如果返回-1，就是不存在.indexOf(String str)
+        System.out.println("我是--寻找，(开头开始 -- 第一次就找到x的索引位置): " + string21.indexOf("i"));
+
+        //21- 寻找，(自定义开始位置，继续往后找)索引位置, 如果返回-1，就是不存在.indexOf(String str ，int formIndex)
+        System.out.println("我是--寻找，从头到尾的方向-  (自定义开始位置，继续往后找)索引位置: " + string21.indexOf("i", 6));
+
+        //20- 寻找，并给出索引位置, 如果返回-1，就是不存在.indexOf(String str)
+        System.out.println("我是--寻找，(开头开始 -- 得出最后那个x的索引位置): " + string21.lastIndexOf("o"));
+
 
     }
 }
