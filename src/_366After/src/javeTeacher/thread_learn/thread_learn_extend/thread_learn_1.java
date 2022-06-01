@@ -1,4 +1,4 @@
-package _366After.src.javeTeacher.thread_learn.thread_learn_1;
+package _366After.src.javeTeacher.thread_learn.thread_learn_extend;
 
 //尚硅谷418----线程（thread）
 /*

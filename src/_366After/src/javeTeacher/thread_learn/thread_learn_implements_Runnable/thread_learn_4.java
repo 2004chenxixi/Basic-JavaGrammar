@@ -1,4 +1,4 @@
-package _366After.src.javeTeacher.thread_learn.thread_learn_4_new;
+package _366After.src.javeTeacher.thread_learn.thread_learn_implements_Runnable;
 /*
 和前面的123-不同
 前面用的是（继承）

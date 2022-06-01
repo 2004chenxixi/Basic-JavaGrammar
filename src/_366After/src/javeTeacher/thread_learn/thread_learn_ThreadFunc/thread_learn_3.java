@@ -1,4 +1,4 @@
-package _366After.src.javeTeacher.thread_learn.thread_learn_3;
+package _366After.src.javeTeacher.thread_learn.thread_learn_ThreadFunc;
 
 /**
  * （一）测试Thread中常用的方法：

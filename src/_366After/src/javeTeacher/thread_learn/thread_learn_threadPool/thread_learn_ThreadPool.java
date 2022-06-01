@@ -12,8 +12,8 @@ public class thread_learn_ThreadPool {
         //设置-线程池的最大容量
         ExecutorService service = Executors.newFixedThreadPool(10);
 
-        service.execute();//适合-适用于Runnable
-        service.submit();//适合-适用于Callable
+//        service.execute();//适合-适用于Runnable
+//        service.submit();//适合-适用于Callable
 
 
     }

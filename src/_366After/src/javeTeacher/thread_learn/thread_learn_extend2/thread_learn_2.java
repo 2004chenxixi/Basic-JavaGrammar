@@ -1,4 +1,4 @@
-package _366After.src.javeTeacher.thread_learn.thread_learn_2;
+package _366After.src.javeTeacher.thread_learn.thread_learn_extend2;
 
 /**
  * 对thread_learn-1  的解决
