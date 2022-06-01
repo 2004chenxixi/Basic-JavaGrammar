@@ -2,13 +2,15 @@ package _366After.src.javeTeacher.commonly_used_class.Commonly_used_class_String
 
 import org.testng.annotations.Test;
 
+import java.io.UnsupportedEncodingException;
+
 /*
 使用String的Method方法大合集
  */
 public class Commonly_used_StringFunc {
 
     @Test
-    public void Test1() {
+    public void Test1() throws UnsupportedEncodingException {
         String string1 = "HelloString"; //1- 基础款
 
         System.out.println(string1.length());//2- 长度.length()
@@ -151,6 +153,7 @@ public class Commonly_used_StringFunc {
 /*
 编码：看的懂 --> 变成看不懂
 解码：看不懂 --> 看的懂
+说明：你的  编码的字符集  和  解码集的字符集  ， 必须一样（可以定义字符集）
  */
         //27- String -- > byte[]  (出来的是，字符码) ======编码
         String str3 = "534jkjdak";
@@ -161,5 +164,8 @@ public class Commonly_used_StringFunc {
         String s2 = new String(b);
         System.out.println("我是 byte[] --> String ： " + s2);
 
+        //new String(A, "XXX");   -->  这里的A为你需要转变的 byte[]， XXX为你需要的-字符集（utf-8，gbk，...）
+        String gbk = new String(b, "gbk");
+        System.out.println("我是被安排的编码级 ： " + gbk);
     }
 }
