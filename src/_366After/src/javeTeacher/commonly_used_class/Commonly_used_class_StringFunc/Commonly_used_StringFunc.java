@@ -3,6 +3,9 @@ package _366After.src.javeTeacher.commonly_used_class.Commonly_used_class_String
 import org.testng.annotations.Test;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 
 /*
 使用String的Method方法大合集
@@ -11,6 +14,8 @@ public class Commonly_used_StringFunc {
 
     @Test
     public void Test1() throws UnsupportedEncodingException {
+        //-----------------------------------------String
+
         String string1 = "HelloString"; //1- 基础款
 
         System.out.println(string1.length());//2- 长度.length()
@@ -164,8 +169,75 @@ public class Commonly_used_StringFunc {
         String s2 = new String(b);
         System.out.println("我是 byte[] --> String ： " + s2);
 
-        //new String(A, "XXX");   -->  这里的A为你需要转变的 byte[]， XXX为你需要的-字符集（utf-8，gbk，...）
+        //27.6  new String(A, "XXX");   -->  这里的A为你需要转变的 byte[]， XXX为你需要的-字符集（utf-8，gbk，...）
         String gbk = new String(b, "gbk");
         System.out.println("我是被安排的编码级 ： " + gbk);
+
+
+//---------------------------------------------------------------------------------------------
+
+        //-----------------------------------------数组
+
+        //28-  --- 对数组进行排序--升序 (冒泡).Arrays.sort
+        int[] number1 = new int[]{21, 234, 4324, 54, 5, 654, -65, 5, -99};
+        Arrays.sort(number1);
+        //细节，输出要用Arrays.toString()， 不然出现是：地址值
+        System.out.println("我是被 Arrays.sort 后的数组 -- ： " + Arrays.toString(number1));
+
+        //28.5 ----  排序-- 降序1（用包装类+Collections.reverseOrder()）
+        Integer[] a = {1, 2, 3, 4, 5};
+        Arrays.sort(a, Collections.reverseOrder());
+        System.out.println("我是已经被降序的=  " + Arrays.toString(a));
+
+        //28.6   ---  排序-- 降序2(comparator接口的方法) ----X(不是很推荐)
+        // a数组降序排列应为： 5 4 4 3 3 2 2 1 1
+        Integer[] a5 = {1, 2, 3, 4, 5, 4, 3, 2, 1};
+
+        Arrays.sort(a5, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o2 - o1;
+            }
+        });
+        System.out.println("我是用comparator接口来实现的倒序= " + Arrays.toString(a5));
+
+
+        //28.7   ---  排序-- 降序3 (实现接口之 lambda)  -----(推荐)
+        Integer[] a6 = {1, 2, 3, 4, 5, 4, 3, 2, 1};
+        Arrays.sort(a6, (e1, e2) -> e2 - e1);
+        System.out.println("我是用-lambda接口-来实现的倒序= " + Arrays.toString(a6));
+
+
+        //29- 填充整个数组或部分数组-fill
+        int[] list = {1, 2, 3, 4, 5, 54, 65, 76};
+        //这里  Arrays.fill(list, 4);
+        // 解释： 一、list你自己要改变的数组名字       二、4 是val，list里面所有的内容换成 -- > val
+        Arrays.fill(list, 4);
+        System.out.println(Arrays.toString(list));
+        // [fromindex , toindex)
+        //解释：这里的fromindex是确定开头的索引，toindex是结尾索引，这个期间的，全部替换成val
+        Arrays.fill(list, 1, 5, 2);
+        System.out.println(Arrays.toString(list));
+
+
+        //30- 比较两个数组内容是否相等  Arrays.equals
+        int[] a1 = {1, 2, 3};
+        int[] e = {1, 2, 3};
+        boolean isSame = Arrays.equals(a1, e); //true
+
+        //31- 拷贝数组
+        //1- 无脑拷贝
+        int[] arr1 = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int[] arr2 = new int[5]; //--- > 这里的自定义长度会被改变
+        arr2 = Arrays.copyOf(arr1, 10);
+        System.out.println("拷贝后的arr2的长度= " + arr2.length);
+        System.out.println("拷贝后的arr2的内容= " + Arrays.toString(arr2));
+
+        //2- 选择性拷贝
+        // from 表示开始位置， to 表示结束位置
+        // 复制下标为 ：[from, to)
+        // Arrays.copyOfRange( int[] original, int from, int to)
+
+
     }
 }
