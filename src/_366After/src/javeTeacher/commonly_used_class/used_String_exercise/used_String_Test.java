@@ -4,6 +4,8 @@ package _366After.src.javeTeacher.commonly_used_class.used_String_exercise;
 String的练习
  */
 
+import java.util.Arrays;
+
 //总测试
 public class used_String_Test {
     public static void main(String[] args) {
@@ -24,10 +26,10 @@ public class used_String_Test {
 
         //3-获取两个字符串中----"最大"的"相同"子串
         getMaxSomeString getMaxSomeString = new getMaxSomeString();
-        String str1 = "qwertyuiop1asdfghjkl";
-        String str2 = "uiop1";
-        String maxSomeString = getMaxSomeString.getMaxSomeString(str1, str2);
-        System.out.println("获取两个字符串中----\"最大\"的\"相同\"子串=  " + maxSomeString);
+        String str1 = "abcwerthello1yuiodefabcdef";
+        String str2 = "cvhello1nmabcdef";
+        String[] maxSomeString = getMaxSomeString.getMaxSomeString(str1, str2);
+        System.out.println("获取两个字符串中----\"最大\"的\"相同\"子串=  " + Arrays.toString(maxSomeString));
     }
 }
 
@@ -112,22 +114,27 @@ class getCount {
 
 //3- 获取两个字符串中----"最大"的"相同"子串
 class getMaxSomeString {
-    //str1="qwehellozxc"   ----   str2="poihell"
-    public String getMaxSomeString(String str1, String str2) {
+    public String[] getMaxSomeString(String str1, String str2) {
         if (str1 != null && str2 != null) {
+            StringBuffer buffer = new StringBuffer();
             String MaxStr = (str1.length() >= str2.length()) ? str1 : str2;
             String MinStr = (str1.length() < str2.length()) ? str1 : str2;
+
             int length = MinStr.length();
             for (int i = 0; i < length; i++) {
-
-                for (int x = 0, y = length - i; y <= length; y++) {
+                for (int x = 0, y = length - i; y <= length; x++, y++) {
                     String subString = MinStr.substring(x, y);
                     if (MaxStr.contains(subString)) {
-                        return subString;
+                        buffer.append(subString + ",");
                     }
                 }
+                // System.out.println(buffer);
+                if (buffer.length() != 0) {
+                    break;
+                }
             }
-            return null;
+            String[] split = buffer.toString().replaceAll(",$", "").split("\\,");
+            return split;
         }
         return null;
     }
