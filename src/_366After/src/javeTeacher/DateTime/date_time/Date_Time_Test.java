@@ -69,7 +69,7 @@ public class Date_Time_Test {
 
     }
 
-    //练习--：字符串："2020-09-08"  转化为  java.sql.Date(方便存入数据库)
+    //练习1--：字符串："2020-09-08"  转化为  java.sql.Date(方便存入数据库)
     @Test
     public void TestExer() throws ParseException {
         String birth = "2020-01-02";
@@ -81,6 +81,12 @@ public class Date_Time_Test {
         java.sql.Date birthDate = new java.sql.Date(date.getTime());
         System.out.println("String -> java.sql.Date = " + birthDate);
     }
+    //练习2--：三天打鱼，两天晒网
+    //1- 总天数
+    //2- 总天数 % 5 == 1，2，3
+    //   总天数 % 5 == 4，0
+    //总：用秒算
+    //（date2.getTime() - date1.getTime()) / (1000 * 60 * 60 * 24)+1
 
 }
 
