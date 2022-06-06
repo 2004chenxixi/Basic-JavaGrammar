@@ -55,8 +55,11 @@ public class used_class_StringBufferAndStringBuilder {
 
         //7- .substring(找规定索引地方--的值) 需要返回值
 
-        //8-
-
+        //8-String  -- StringBuffer/StringBuilder  --相互转化
+        /*
+        String --> StringBuffer/StringBuilder = 调用StringBuffer/StringBuilder的构造器
+        StringBuffer/StringBuilder -- String = 1-调用String的构造器/2-调用toString方法
+         */
 
     }
 

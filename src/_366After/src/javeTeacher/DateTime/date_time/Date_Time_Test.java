@@ -28,6 +28,7 @@ public class Date_Time_Test {
         Date date5 = new Date(); //父
         java.sql.Date date6 = new java.sql.Date(date5.getTime()); // 父(的date5.getTime()的时间戳) --> 子(的时间)
 
+
     }
 
 }
