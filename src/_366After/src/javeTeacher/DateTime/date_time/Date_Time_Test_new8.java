@@ -3,6 +3,8 @@ package _366After.src.javeTeacher.DateTime.date_time;
 import org.testng.annotations.Test;
 
 import java.time.*;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAccessor;
 import java.util.Date;
 
 //jdk8新版本的Date
@@ -81,6 +83,23 @@ public class Date_Time_Test_new8 {
         //*通过给定的毫秒数，获取Instant的实例
         Instant instant1 = Instant.ofEpochMilli(1654505787982L);
         System.out.println(instant1);
+    }
+
+    /*
+    4- DateTimeFarmatter：格式化 OR 解析--日期、时间
+     */
+    @Test
+    public void test3() {
+        //1- 自定义--格式
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
+
+        //格式化 -- Date --> String
+        String str = dateTimeFormatter.format(LocalDateTime.now());
+        System.out.println(str);
+
+        //解析 String --> Date(再将Date --> java.sql.Date方便存入数据库)
+        TemporalAccessor parse = dateTimeFormatter.parse("2022-06-06 05:16:14");
+        System.out.println(parse);
     }
 
 }
