@@ -6,14 +6,22 @@ String的练习
 
 public class used_String_Test {
     public static void main(String[] args) {
-        // 我是对部分字符串，进行反转
-        //1-方式一：char[]
+        // 1- 我是对部分字符串，进行反转 ----> 3种方式
         reverse reverse = new reverse();
         String str = "abcdefg";
-        String reverse1 = reverse.reverse1(str, 2, 5);
+        String reverse1 = reverse.reverse3(str, 2, 5);
         System.out.println("我是对部分字符串，进行反转=  " + reverse1);
 
 
+        //2- --> 获取一个字符串,在另一个字符串中出现的次数
+        getCount getCount = new getCount();
+        String mianStr = "abihofdgpjgpdabjfpgjpejabpjgerpgjpe";
+        String subStr = "ab";
+        int i = getCount.gainCount(mianStr, subStr);
+        System.out.println("获取一个字符串,在另一个字符串中出现的次数:=  " + i);
+
+
+        //3-
     }
 }
 
@@ -41,9 +49,9 @@ class getMaxSomeString {
     }
 }
 
+//1- 字符串--部分进行反转
 class reverse {
-    //1- 字符串--部分进行反转
-    public String reverse(String str, int startIndex, int endIndex) {
+    public String reverse1(String str, int startIndex, int endIndex) {
         if (str != null && str.length() != 0) {
             //1-将String --> char[]
             char[] arr = str.toCharArray();
@@ -58,7 +66,7 @@ class reverse {
     }
 
     //2- 方式二： 使用String的拼接
-    public String reverse1(String str, int startIndex, int endIndex) {
+    public String reverse2(String str, int startIndex, int endIndex) {
         if (str != null && str.length() != 0) {
             //第一部分
             String reverseOne = str.substring(1, startIndex);
@@ -73,7 +81,46 @@ class reverse {
         return null;
     }
 
+    //方式三：使用StringBuild 替换--> String
+    public String reverse3(String str, int startIndex, int endIndex) {
+        if (str != null && str.length() != 0) {
+            //先定义一个StringBulid的长度
+            StringBuilder Builder = new StringBuilder(str.length());
+            //第一
+            Builder.append(str.substring(1, startIndex));
+            //第二
+            for (int i = endIndex; i >= startIndex; i--) {
+                Builder.append(str.charAt(i));
+            }
+            //第三
+            Builder.append(str.substring(endIndex + 1));
+            return Builder.toString();
+        }
+        return null;
+    }
 }
+
+//2- 获取一个字符串,在另一个字符串中出现的次数
+class getCount {
+    //获取subStr在mainStr中出现的次数
+    public int gainCount(String mainStr, String subStr) {
+        int mainLength = mainStr.length();
+        int subLength = subStr.length();
+        int count = 0;
+        int index;
+        if (mainLength >= subLength) {
+
+            while ((index = mainStr.indexOf(subStr)) != -1) {
+                count++;
+                mainStr = mainStr.substring(index + subStr.length());
+            }
+            return count;
+        } else {
+            return 0;
+        }
+    }
+}
+
 
 
 
