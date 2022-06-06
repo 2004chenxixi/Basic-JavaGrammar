@@ -4,14 +4,19 @@ import org.testng.annotations.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
-//获取时间
-//java.util.Date
-//---java.sql.Date
+//jdk8之前日期时间的API测试
 public class Date_Time_Test {
     @Test
+
     public void test() throws ParseException {
+   /*
+   大纲：获取时间
+      java.util.Date
+          ---java.sql.Date
+    */
         //构造器一、Date（）当前时间的Date
         Date date1 = new Date();
         System.out.println(date1.toString());//年月日
@@ -29,18 +34,22 @@ public class Date_Time_Test {
         //情况 - 如何将 （父）的Date  ---> 数据库中(子)的Date
         Date date5 = new Date(); //父
         java.sql.Date date6 = new java.sql.Date(date5.getTime()); // 父(的date5.getTime()的时间戳) --> 子(的时间)
+    }
 
 //————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-         /*
-         大纲：
-         使用SimpleDateFormat的使用：SimpleDateFormat对日期Date类的格式和解析
-         1-两个操作
-           -格式化：              日期  ---> 字符串
-           -解析：格式化的逆过程：  字符串 ---> 日期
+//————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-         2-SimpleDateFormat的实例化
+    /*
+    大纲：
+    使用SimpleDateFormat的使用：SimpleDateFormat对日期Date类的格式和解析
+    1-两个操作
+      -格式化：              日期  ---> 字符串
+      -解析：格式化的逆过程：  字符串 ---> 日期
+
+    2-SimpleDateFormat的实例化
 ----------------------------------------------------------         --------------------------------------------------
-          */
+     */
+    public void testSimpleDateFormat() throws ParseException {
 //1-实例化:使用固定的SimpleDateFormat方法
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
 //2--格式化： 日期  ---> 字符串
@@ -88,5 +97,47 @@ public class Date_Time_Test {
     //总：用秒算
     //（date2.getTime() - date1.getTime()) / (1000 * 60 * 60 * 24)+1
 
+
+    // ——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+    // ——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+    /*
+    大纲：
+       Calendar--（抽象类）日历类的使用
+     */
+    @Test
+    public void TestCalendar() {
+        //1-实例化
+        //调用-静态方法getInstance()
+        Calendar calendar = Calendar.getInstance();
+
+        //2-常用方法  --get/set/add/getTime/setTime
+
+        //get--获取今天是多少天
+        int days = calendar.get(calendar.DAY_OF_MONTH);//这一周的第几天
+        System.out.println(days);
+
+        //set --自己设置第几天
+        calendar.set(calendar.DAY_OF_MONTH, 22);
+        int day = calendar.get(calendar.DAY_OF_MONTH);
+        System.out.println(day);
+
+        //add（加天数/减天数）
+        calendar.add(calendar.DAY_OF_MONTH, -3);//加天数(3)/减天数(-3)
+        day = calendar.get(calendar.DAY_OF_MONTH);
+        System.out.println(day);
+
+        //getTime(日历类 ---> Date)
+        Date date = calendar.getTime();
+        System.out.println(date);
+
+        //setTime(Date --> 日历类)
+        Date date1 = new Date();
+        calendar.setTime(date1);
+        day = calendar.get(calendar.DAY_OF_MONTH);
+        System.out.println(day);
+
+
+    }
 }
 
