@@ -4,6 +4,7 @@ package _366After.src.javeTeacher.commonly_used_class.used_String_exercise;
 String的练习
  */
 
+//总测试
 public class used_String_Test {
     public static void main(String[] args) {
         // 1- 我是对部分字符串，进行反转 ----> 3种方式
@@ -21,33 +22,15 @@ public class used_String_Test {
         System.out.println("获取一个字符串,在另一个字符串中出现的次数:=  " + i);
 
 
-        //3-
+        //3-获取两个字符串中----"最大"的"相同"子串
+        getMaxSomeString getMaxSomeString = new getMaxSomeString();
+        String str1 = "qwertyuiop1asdfghjkl";
+        String str2 = "uiop1";
+        String maxSomeString = getMaxSomeString.getMaxSomeString(str1, str2);
+        System.out.println("获取两个字符串中----\"最大\"的\"相同\"子串=  " + maxSomeString);
     }
 }
 
-class getMaxSomeString {
-    //获取两个字符串中----"最大"的"相同"子串
-    //str1="qwehellozxc"   ----   str2="poihell"
-    public String getMaxSomeString(String str1, String str2) {
-        if (str1 != null && str2 != null) {
-            String MaxStr = (str1.length() >= str2.length()) ? str1 : str2;
-            String MinStr = (str1.length() < str2.length()) ? str1 : str2;
-            int length = MinStr.length();
-            for (int i = 0; i < length; i++) {
-
-                for (int x = 0, y = length - i; y <= length; y++) {
-
-                    String subString = MinStr.substring(x, y);
-                    if (MaxStr.contains(subString)) {
-                        return subString;
-                    }
-                }
-            }
-            return null;
-        }
-        return null;
-    }
-}
 
 //1- 字符串--部分进行反转
 class reverse {
@@ -107,19 +90,50 @@ class getCount {
         int mainLength = mainStr.length();
         int subLength = subStr.length();
         int count = 0;
-        int index;
+        int index = 0;
         if (mainLength >= subLength) {
-
-            while ((index = mainStr.indexOf(subStr)) != -1) {
+//方式一
+//            while ((index = mainStr.indexOf(subStr)) != -1) {
+//                count++;
+//                mainStr = mainStr.substring(index + subStr.length());
+//            }
+//方式二
+            while ((index = mainStr.indexOf(subStr, index)) != -1) {
                 count++;
-                mainStr = mainStr.substring(index + subStr.length());
+                index += subLength;
             }
+
             return count;
         } else {
             return 0;
         }
     }
 }
+
+//3- 获取两个字符串中----"最大"的"相同"子串
+class getMaxSomeString {
+    //str1="qwehellozxc"   ----   str2="poihell"
+    public String getMaxSomeString(String str1, String str2) {
+        if (str1 != null && str2 != null) {
+            String MaxStr = (str1.length() >= str2.length()) ? str1 : str2;
+            String MinStr = (str1.length() < str2.length()) ? str1 : str2;
+            int length = MinStr.length();
+            for (int i = 0; i < length; i++) {
+
+                for (int x = 0, y = length - i; y <= length; y++) {
+                    String subString = MinStr.substring(x, y);
+                    if (MaxStr.contains(subString)) {
+                        return subString;
+                    }
+                }
+            }
+            return null;
+        }
+        return null;
+    }
+}
+
+
 
 
 
