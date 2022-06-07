@@ -47,7 +47,15 @@ public class Goods implements Comparable {
 
         if (o instanceof Goods) {
             Goods goods = (Goods) o;
-            return Double.compare(this.price, goods.price);
+            //方式一、
+            if (this.price > goods.price) {
+                return 1;
+            } else if (this.price < goods.price) {
+                //return 0;
+                return -this.name.compareTo(goods.name);
+            }
+            //方式二、  return Double.compare(this.price, goods.price);
+            return this.name.compareTo(goods.name);
         }
         throw new RuntimeException("你输入的类型有误");
     }
