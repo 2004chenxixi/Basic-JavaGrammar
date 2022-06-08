@@ -1,0 +1,10 @@
+java集合框架
+ collection接口：单列集合，用来存储一个一个的对象
+           List接口：存储有序的、可重复的数据  --> "动态"数组
+                    ArrayList、linkedList、Vector
+
+           set接口：存储无序的、不可重复的数据  -->"高中的"集合
+                     HashSet、LinkedHashSet、treeSet
+
+ Map接口：双列集合，用来存储一对（key - value）一对的数据     -->"高中的" y = f(x)
+                       HashMap、LinkedHashmap、TreeMap、Hashtable、Properties
