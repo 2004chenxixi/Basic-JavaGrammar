@@ -115,7 +115,23 @@ public class About_List_understand {
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i));
         }
-
-
     }
+
+    //附加 ---> 小问题：对remove的理解
+    @Test
+    public void test4() {
+        ArrayList list = new ArrayList();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+
+        updateList(list);  //调用下面写的updateList方法
+        System.out.println(list);
+    }
+
+    private void updateList(List list) {
+        list.remove(2);              //这样的是删除 index索引为2的元素
+        list.remove(new Integer(2)); //这样是删除 --值为2的这个元素
+    }
+
 }
