@@ -11,7 +11,7 @@ collection接口：单列集合，用来存储一个一个的对象
 
            set接口：存储无序的、不可重复的数据  -->"高中的"集合
                      HashSet: 作为Set接口的主要实现类；线程不安全；可以存储null值
-                              LinkedHashSet：作为hashSet的子类；"便利"其内部数据的时候，可以按照填写的顺序"便利"
+                             LinkedHashSet：作为hashSet的子类；"便利"其内部数据的时候，可以按照填写的顺序"便利"
                      treeSet：可以按照添加对象的指定属性，进行排序
  */
 public class About_Set_understand {

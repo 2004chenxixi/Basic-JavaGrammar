@@ -2,7 +2,7 @@ package _366After.src.javeTeacher.gather.gather_there;
 
 import java.util.Objects;
 
-public class User {
+public class User implements Comparable {
     private String name;
     private int age;
 
@@ -49,5 +49,22 @@ public class User {
     @Override
     public int hashCode() {
         return Objects.hash(name, age);
+    }
+
+    //要String比较所以要进行 --- 重写compareTo方法
+    @Override
+    public int compareTo(Object o) {
+        if (o instanceof User) {
+            User user = (User) o;
+            int compare = this.name.compareTo(user.name); //对一样名字，再进行一次处理
+            //如果名字不一样，不会返回 = 0 ， 所以 = 0的情况就是，名字相同，我们再进行处理
+            if (compare != 0) {
+                return compare;
+            } else {
+                return Integer.compare(this.age, user.age); //比较Inerger类型，需要这样的形式
+            }
+        } else {
+            throw new RuntimeException("输入的类型不匹配");
+        }
     }
 }
