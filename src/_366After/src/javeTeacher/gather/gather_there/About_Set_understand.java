@@ -18,7 +18,7 @@ public class About_Set_understand {
     // set接口：存储无序的、不可重复的数据
     /*
     1- 无序性  !=  随机性
-    存储的数据在底层数组中并非按照数组的索引的顺序添加，而是根据---哈希值
+    存储的数据在底层数组中并非按照数组的索引的顺序添加，而是根据---哈希值决定的
 
     2- 不可重复性 :保证添加的元素按照equals()判断时候，不能返回true，--  相同的元素只能添加一个
     要求：向Set中添加的数据，其所在的类一定要重写  hashCode  和  equal  方法
@@ -60,6 +60,7 @@ public class About_Set_understand {
         set1.add("AA");
         set1.add("BB");
         set1.add("CC");
+
 
         Iterator iterator1 = set1.iterator();
         while (iterator1.hasNext()) {

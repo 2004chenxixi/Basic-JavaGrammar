@@ -46,7 +46,7 @@ public class learn_Compare {
 
     /*
     Comparator比较器（定制排序）
-背景：1- 元素类没有实现Java.lang.Comparable接口而又不方便修改代码，
+背景：1- 元素类没有实现Java.lang.Comparable接口而又不方便修改代码，（不方便在类上继承-- comparable）
         或者实现java.lang.Comparable接口的排序规则不适合当前的操作，
         那么可以考虑使用Comparable的对象来排序
      */

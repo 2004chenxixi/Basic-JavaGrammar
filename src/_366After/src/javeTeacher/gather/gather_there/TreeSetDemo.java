@@ -58,6 +58,7 @@ public class TreeSetDemo {
         set.add(new User("rr", 44));
         set.add(new User("rr", 43));
 
+
         Iterator iterator = set.iterator();
         while (iterator.hasNext()) {
             System.out.println(iterator.next());
@@ -65,8 +66,3 @@ public class TreeSetDemo {
     }
 
 }
-
-
-
-
-
