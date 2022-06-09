@@ -5,11 +5,12 @@ import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 /*
 
-                            List的理解和常用方法
+                                               List的理解和常用方法
 collection接口：单列集合，用来存储一个一个的对象
            List接口：存储有序的、可重复的数据  --> "动态"数组
                  ArrayList -->  "作为List接口的主要实现类，线程不安全，效率高，底层用Object[] elementData （推荐）"
@@ -19,6 +20,18 @@ collection接口：单列集合，用来存储一个一个的对象
 ArrayList、LinkedList、vector三者的异同
 同：1- 都实现类List接口  2-存储有序、可以重复的数据
 异：看上面
+
+-----------------------------------------------------------------------------------------------------------
+
+**总结：常用方法
+增：    -->    add(Object  obj) //默认在末尾增加
+删：    -->    remove(int index) / remove(Object  obj)
+改：    -->    set(int  index, Object  ele)
+查：    -->    get(int index)
+插入：  -->    add(int  index, Object  ele)
+长度：  -->    size()
+便利：  -->    1- Iterator(迭代器方式)    2- foreach    3-普通循环
+
  */
 public class About_List_understand {
     @Test
@@ -85,9 +98,24 @@ public class About_List_understand {
         list.add(123);
         list.add(345);
         list.add("AA");
-        list.add(new person("张三", 43));
-        list.add(123);
-        list.add(999);
+
+        //List的循环（3种）
+        //1- iterator
+        Iterator iterator = list.iterator();      //1- 把需要 -- (便利的集合).iterator();
+        while (iterator.hasNext()) {              //2- .hasNext()
+            System.out.println(iterator.next()); //3- .next()
+        }
+
+        //2-foreach
+        for (Object obj : list) {    //类型  ： （便利的集合）
+            System.out.println(obj);
+        }
+
+        //3-普通版本
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
+
 
     }
 }
