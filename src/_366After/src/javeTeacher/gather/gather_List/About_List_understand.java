@@ -1,6 +1,6 @@
-package _366After.src.javeTeacher.gather.gather_two;
+package _366After.src.javeTeacher.gather.gather_List;
 
-import _366After.src.javeTeacher.gather.learn_gather_one.person;
+import _366After.src.javeTeacher.gather.learn_gather_collection.person;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;

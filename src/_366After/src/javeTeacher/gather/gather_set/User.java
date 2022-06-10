@@ -1,4 +1,4 @@
-package _366After.src.javeTeacher.gather.gather_there;
+package _366After.src.javeTeacher.gather.gather_set;
 
 import java.util.Objects;
 

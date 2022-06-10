@@ -1,4 +1,4 @@
-package _366After.src.javeTeacher.gather.gather_there.Set_Test;
+package _366After.src.javeTeacher.gather.gather_set.Set_Test;
 
 import org.testng.annotations.Test;
 
