@@ -1,4 +1,4 @@
-package _366After.src.javeTeacher.gather.gether_Map.about_map_understand;
+package _366After.src.javeTeacher.gather.gether_Map.about_HashMap_understand;
 
 import org.testng.annotations.Test;
 
@@ -30,7 +30,7 @@ Map结构的理解
 
 
  */
-public class About_Map_Understand {
+public class About_HashMap_Understand {
     @Test
     public void MapTest1() {
         //三、SashMap的常用方法
