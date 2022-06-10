@@ -2,7 +2,7 @@ package _366After.src.javeTeacher.gather.Collection_TreeSet_Test;
 
 public class Person implements Comparable {
     private String name;
-    private int age;
+    private Integer age;
     private MyDate birthday;
 
     public Person() {
@@ -54,5 +54,9 @@ public class Person implements Comparable {
             return this.name.compareTo(p.name);
         }
         throw new RuntimeException("输入错误");
+    }
+
+    public Boolean compareAge(Person p2) {
+        return this.age.equals(p2.getAge());
     }
 }
