@@ -1,6 +1,73 @@
 简介：  这包的主要类容是：比较器
-learn_Compare(自然比较器) 和  Goods    --  连用
 
-自然类（只能从小到大排列）
-自定义类（可以修改成--从大到小）
+比较器两种：1- compareTo   2- new Comparator()
+
+1-
+   当我们把类 --> 实现了implements Comparable  -->会重写compareTo方法
+                                       （这个是通用方法，这个规定用什么来比较，就用什么来比较）
+
+     /*
+     对实现了implements Comparable  -->会重写compareTo方法的代码演示：
+       1-让类实现implements Comparable
+       2-会重写compareTo方法
+       ----------------->
+      1-  public class Person implements Comparable (实现){
+           private String name;
+           private int age;
+           private MyDate birthday;
+
+       2-    @Override （重写）
+               public int compareTo(Object o) {
+                   if (o instanceof Person) {
+                       Person p = (Person) o;
+                       return this.name.compareTo(p.name);
+                   }
+                   throw new RuntimeException("输入错误");
+               }
+
+     */
+
+
+2-
+   1-当然，我们不能被困死，所以有了new Comparator();方法
+
+   2- 用Comparator()方法的场景
+       场景： compareTo规定的按名字来比较大小，这个时候，你要以年龄来比较大小 -->  需求不就来了
+
+   3- 我们只要在  集合/数组  里面new Comparator();   重写方法即可
+
+   /*
+    //对new Comparator();方法的代码解析：
+
+    1- TreeSet treeSet = new TreeSet(new Comparator() {   //（new Comparator();）
+               @Override
+               public int compare(Object o1, Object o2) {  //重写
+                   if (o1 instanceof Person && o2 instanceof Person) {
+                       Person person1 = (Person) o1;  //记得大写
+                       Person person2 = (Person) o2;
+
+                       MyDate birthday1 = person1.getBirthday();
+                       MyDate birthday2 = person2.getBirthday();
+
+                       //比较年
+                       int year = birthday1.getYear() - birthday2.getYear();
+                       if (year != 0) {
+                           return year;
+                       }
+
+                       //比较月
+                       int month = birthday1.getMonth() - birthday2.getMonth();
+                       if (month != 0) {
+                           return month;
+                       }
+
+                       //比较日
+                       return birthday1.getDay() - birthday2.getDay();
+
+                   }
+                   throw new RuntimeException("输入错误");
+               }
+           });
+
+   */
 
