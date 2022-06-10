@@ -2,7 +2,7 @@ package _366After.src.javeTeacher.gather.gether_Map.about_map_understand;
 
 import org.testng.annotations.Test;
 
-import java.util.HashMap;
+import java.util.*;
 
 /*
 一、
@@ -21,6 +21,12 @@ Map结构的理解
     Map中的Entry：无序、不可重复，使用set存储entry
 
 三、HashMap的常用方法
+增：put(Object key ,Object value)
+删：remove（Object key）
+改：put(Object key ,Object value)
+查：get（Object key）
+长度：size（）；
+便利：keySet（）/values（）/entry（）
 
 
  */
@@ -44,6 +50,85 @@ public class About_Map_Understand {
         map1.put(978, 99999999);
         map.putAll(map1);
         System.out.println(map);
+
+        //4- remove(Object  key) -->  根据key来删除数据，返回的是 key对应的value
+        Object value = map.remove(123);
+        System.out.println(value); // 根据key来删除数据，返回的是 key对应的value
+        System.out.println(map);
+
+        //5- clear(清除数据)
+        map.clear();
+        System.out.println("clear后的的长度 =  " + map.size());
+        System.out.println("clear后集合的内容  =  " + map);
+    }
+
+    @Test
+    public void test2() {
+
+        HashMap map = new HashMap();
+        map.put("AA", 123);
+        map.put("BB", 13);
+        map.put("ACC", 23);
+
+        //6查找 - get(Object  key)  //输入key，找到他的value
+        System.out.println(map.get("AA"));
+
+        //7- 检验是否存在--指定的这个key---.containsKey
+        boolean isExistKey = map.containsKey("AA"); //是否存在Key="AA"的这个东西吗
+        System.out.println("判断是否存在指定的这个key = " + isExistKey);
+
+        //8- 检验是否存在--指定的这个value----.containsValue
+        boolean isExistValue = map.containsValue(23); //是否存在Value=23 的这个东西吗
+        System.out.println("判断是否存在指定的这个value = " + isExistValue);
+
+        //9- isEmpty (看看这个集合，内容是否为空)
+        /*
+        map.clear();
+        System.out.println("看看这个集合，内容是否为空  = "+map.isEmpty());
+         */
+
+    }
+
+    @Test
+    public void test3() {
+        HashMap map = new HashMap();
+        map.put("AA", 123);
+        map.put("BB", 13);
+        map.put("ACC", 23);
+
+        //10- 便利所有的key： keySet()
+        Set set = map.keySet();             //1- 先接收keySet的值
+        Iterator iterator = set.iterator(); //2- 用接收的keySet的值..iterator();
+        while ((iterator.hasNext())) {       //3- while便利keySet的值..iterator();
+            System.out.println(" 便利所有的key = " + iterator.next());
+        }
+        System.out.println("--------------------");
+
+        //11- 便利所有的value
+        Collection values = map.values();
+        for (Object obj : values) {
+            System.out.println("便利所有的value = " + obj);
+        }
+
+        //12- 便利所有的key - value
+        //便利方式一、
+        Set entrySet = map.entrySet();
+        Iterator iterator1 = entrySet.iterator();
+        while (iterator1.hasNext()) {
+            Object obj = iterator1.next();
+            //entrySet集合中的元素都是entry
+            Map.Entry entry = (Map.Entry) obj;
+            System.out.println(entry.getKey() + " ----> " + entry.getValue());
+        }
+        //便利方式二、
+        Set setKey = map.keySet();             //1- 先接收keySet的值
+        Iterator iterator2 = setKey.iterator(); //2- 用接收的keySet的值..iterator();
+        while ((iterator2.hasNext())) {       //3- while便利keySet的值..iterator();
+            Object key = iterator2.next();
+            Object value = map.get(key);
+            System.out.println(key + " ======> " + value);
+
+        }
 
 
     }
