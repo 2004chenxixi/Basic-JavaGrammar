@@ -40,7 +40,6 @@ public class personTest {
                 if (o1 instanceof Person && o2 instanceof Person) {
                     Person person1 = (Person) o1;  //记得大写
                     Person person2 = (Person) o2;
-                    person1.compareAge(person2);
 
                     MyDate birthday1 = person1.getBirthday();
                     MyDate birthday2 = person2.getBirthday();
