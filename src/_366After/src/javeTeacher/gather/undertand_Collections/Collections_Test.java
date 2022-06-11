@@ -68,6 +68,15 @@ public class Collections_Test {
         List list1 = Collections.synchronizedList(list);
         System.out.println("线程安全问题= " + list1);
 
+        //附加 -对线程的使用
+        /*
+        我们使用集合--主要都是使用ArrayList和HashMap都是效率高，但是线程不安全的
+当然有解决方法：
+        我们可以将：ArrayList和HashMap转化成为线程的。
+        操作：Collections.synchronizedList(List list)、Collections.synchronizedMap(Map  map)
+        使用.synchronizedXXX()就可以使线程安全。
+         */
+
 
     }
 }
