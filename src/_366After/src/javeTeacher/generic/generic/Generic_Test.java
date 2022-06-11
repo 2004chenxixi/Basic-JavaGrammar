@@ -70,7 +70,7 @@ public class Generic_Test {
         map.put("Web", 187);
         map.put("chenxixi", 187);
 
-        //2- 泛型的嵌套（目的：为了便利）
+        //2- 泛型的嵌套（目的：为了更好的便利）
         Set<Map.Entry<String, Integer>> entries = map.entrySet();
         Iterator<Map.Entry<String, Integer>> iterator = entries.iterator();
         while (iterator.hasNext()) {
