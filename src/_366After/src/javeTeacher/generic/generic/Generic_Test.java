@@ -81,4 +81,136 @@ public class Generic_Test {
         }
 
     }
+    //——————————————————————————————————————————————————————————————————————————————————————————————————
+    /*
+    对下面的Contribution：
+             下面是--"泛型"在比较器中的具体使用：
+                 一、 test4、test5  ---  是"泛型"在List集合中的使用
+                      注意点：1-List集合下使用CompareTo，要在.sort（）的情况下,才会去使用(类重写CompareTo的方法)
+                            2- List集合在使用new Comparator()的时候，要在 .sort内部new --->  .sort(XX,new Comparator)，然后重写compare方法
+                                eg： Collections.sort(users, new Comparator<User_two>() {
+
+                 二、test6、test7 ---是"泛型"在TreeSet集合中的使用
+                       注意到：1-TreeSet集合下(不需要)使用.sort（）的情况下,就会自己去使用(类重写CompareTo的方法)
+                              2-TreeSet集合在使用new Comparator()的时候，直接在TreeSet集合开头(XX,new Comparator)，然后重写compare方法，即可
+                                 eg： TreeSet<XXX> set = new TreeSet<XXX>(new Comparator<XXX>()
+     */
+
+
+    //1-（List）泛型在 --- CompareTO中的体现（自然类）
+      /*
+---> 因为我不是TreeSet，和TreeMap所以，要想调用CompareTO中的方法时候，要使用Collections.sort();才可以实现CompareTO方法
+    */
+    @Test
+    public void test4() {
+        ArrayList<User_two> users = new ArrayList<>();
+
+        users.add(new User_two("张三", 54));
+        users.add(new User_two("王五", 14));
+        users.add(new User_two("李四", 65));
+        users.add(new User_two("赵四", 78));
+
+        //这个才是--使用CompareTO的关键，要先把它排序一下，才会调用CompareTO方法
+        //如果单纯是"使用便利"，只是单纯的便利
+        Collections.sort(users);
+
+        //这个操作 --只是（很单纯的便利）
+        Iterator<User_two> iterator = users.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+    }
+
+
+    //2- （List）泛型在 --- Comparator中的体现（自定义类）
+    /*
+---> 因为我不是TreeSet，和TreeMap所以，要想调用Comparable(自定义方法)的时候，要使用Collections.sort(XXX,new comparator);才可以实现(自定义)方法
+如果是TreeSet和TreeMap，就可以直接 -->TreeSet<User_two> users = new TreeSet<User_two>(new Comparator);,然后重写方法
+*/
+    @Test
+    public void test5() {
+        ArrayList<User_two> users = new ArrayList<User_two>();
+
+        users.add(new User_two("赵四", 78));
+        users.add(new User_two("张三", 54));
+        users.add(new User_two("王五", 14));
+        users.add(new User_two("李四", 65));
+
+
+        //这个才是--使用Comparator的关键，在排序的地方重写new Comparator
+        //如果单纯是"使用便利"，只是单纯的便利
+        Collections.sort(users, new Comparator<User_two>() {
+            @Override
+            public int compare(User_two o1, User_two o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
+
+        //这个操作 --只是（很单纯的便利）
+        Iterator<User_two> iterator = users.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+    }
+
+
+    //3- （TreeSet）"泛型"的使用（自然类）
+    /*
+     这个使用TreeSet方法，他和list的不同，不用写Collections.sort(set)方法，可以直接调类中的CompareTO（自然类）
+     */
+    @Test
+    public void test6() {
+        TreeSet<User_two> set = new TreeSet<User_two>();
+
+        set.add(new User_two("赵四吧", 78));
+        set.add(new User_two("张三吧", 54));
+        set.add(new User_two("王五吧", 14));
+        set.add(new User_two("李四吧", 65));
+
+
+        /*
+        使用 TreeSet ，就不需要写" Collections.sort(set) "，他会直接调类中的CompareTO方法
+         */
+
+        //这个操作 --只是（很单纯的便利）
+        Iterator<User_two> iterator = set.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+    }
+
+
+    //4- （TreeSet）"泛型"的使用（自定义类）
+    /*
+   2- 这个使用TreeSet方法，他和list的不同，不用在Collections.sort(set，new Comparator) ---（自定义类）
+   而是直接在（集合开头的时候）：TreeSet<User_two> set = new TreeSet<User_two>(new Comparator<User_two>()
+    */
+    @Test
+    public void test7() {
+        TreeSet<User_two> set = new TreeSet<User_two>(new Comparator<User_two>() {
+            @Override
+            public int compare(User_two o1, User_two o2) {
+                return o1.getName().compareTo(o2.getName());
+            }
+        });
+
+        set.add(new User_two("D", 78));
+        set.add(new User_two("Z", 54));
+        set.add(new User_two("B", 14));
+        set.add(new User_two("A", 65));
+
+
+        /*
+        使用 TreeSet ，就不需要写" Collections.sort(set) "，他会直接调类中的CompareTO方法
+         */
+
+        //这个操作 --只是（很单纯的便利）
+        Iterator<User_two> iterator = set.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+    }
+
+
 }
+
