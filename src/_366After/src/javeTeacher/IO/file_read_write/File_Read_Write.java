@@ -106,7 +106,7 @@ public class File_Read_Write {
     public void test3() throws IOException {
 
         //1- 体验File类的对象，指明 --> 写出到的文件
-        File file = new File("hello.txt");
+        File file = new File("/hello.txt");
         //2-提供FileWriter的对象，用于数据的写出---用FileWriter流
         FileWriter fileWriter = new FileWriter(file, true);
         //3-写出的操作
@@ -115,5 +115,49 @@ public class File_Read_Write {
         fileWriter.write("你需要葵花宝典");
         //4- 关闭流
         fileWriter.close();
+    }
+
+    @Test
+    /*
+    文件的复制
+     */
+    public void test4() {
+        //1- 指明，输入和输出的文件
+        /*
+        下面对文件复制的使用：
+        1- 选择需要复制的文件 --pwd，知道他的路径
+        2-如我下面的例子，我是在testIO，里面复制已有文件-hello.txt  ---- 复制到"同目录下"取名为-hello2.txt
+        所以，我("/Users/ccc/Desktop/testIO","hello2.txt"),前面部分是文件路径，后面是要取名的文件
+         */
+        FileReader fileReader = null;
+        FileWriter fileWriter = null;
+        try {
+            File fileInput = new File("/Users/ccc/Desktop/testIO/hello.txt");
+            File fileOutPut = new File("/Users/ccc/Desktop/testIO", "hello2.txt");
+            //2- 创建输入和输出的--流
+            fileReader = new FileReader(fileInput);
+            fileWriter = new FileWriter(fileOutPut);
+
+            //3-数据的-读/写操作
+
+            char[] sbuf = new char[13];
+            int len;
+            while ((len = fileReader.read(sbuf)) != -1) {
+                fileWriter.write(sbuf, 0, len);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //4- 关闭流--两个close，分别try-catch就可以
+        try {
+            fileReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
