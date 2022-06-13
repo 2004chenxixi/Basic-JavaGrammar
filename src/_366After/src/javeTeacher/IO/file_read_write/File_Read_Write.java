@@ -97,6 +97,11 @@ public class File_Read_Write {
     "写出"
     上面是，"读取"，读取桌面文件
     现在是，输出出去 --> 从内存写出数据到硬盘中
+
+细节：2-提供FileWriter的对象，用于数据的写出---用FileWriter流的细节
+     如果流使用的构造器是：FileWriter(file, flase) / FileWriter(file); 会对原来的文件覆盖
+     如果流使用的构造器是：FileWriter(file, true)  不会对原来的文件覆盖，而是在原来的文件基础追加内容
+
      */
     public void test3() throws IOException {
 
