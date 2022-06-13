@@ -21,6 +21,7 @@ Reader             FileReader            BufferedReader
 Writer             FileWrite             BufferedWrite
 
  */
+//下面都是--字节流来处理，缺点，不能处理图片，视频
 public class File_Read_Write {
     /*
     一、 "读取"XXX.txt文件到终端(但是，这种效率不高 */
@@ -132,11 +133,11 @@ public class File_Read_Write {
         FileReader fileReader = null;
         FileWriter fileWriter = null;
         try {
-            File fileInput = new File("/Users/ccc/Desktop/testIO/hello.txt");
-            File fileOutPut = new File("/Users/ccc/Desktop/testIO", "hello2.txt");
+            File FileSrc = new File("/Users/ccc/Desktop/testIO/hello.txt");
+            File FileDest = new File("/Users/ccc/Desktop/testIO", "hello2.txt");
             //2- 创建输入和输出的--流
-            fileReader = new FileReader(fileInput);
-            fileWriter = new FileWriter(fileOutPut);
+            fileReader = new FileReader(FileSrc);
+            fileWriter = new FileWriter(FileDest);
 
             //3-数据的-读/写操作
 
