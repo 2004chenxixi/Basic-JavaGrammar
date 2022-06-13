@@ -21,7 +21,9 @@ Reader             FileReader            BufferedReader
 Writer             FileWrite             BufferedWrite
 
  */
-//下面都是--字节流来处理，缺点，不能处理图片，视频
+//下面都是--字符流来处理
+//缺点，不能处理图片，视频
+//优点，可以读汉字
 public class File_Read_Write {
     /*
     一、 "读取"XXX.txt文件到终端(但是，这种效率不高 */
