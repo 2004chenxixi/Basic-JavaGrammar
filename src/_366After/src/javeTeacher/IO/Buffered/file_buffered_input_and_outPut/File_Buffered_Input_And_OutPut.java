@@ -5,9 +5,13 @@ import org.testng.annotations.Test;
 import java.io.*;
 
 /*
-1- 对 --字节流，进行"缓冲流"的操作
+处理流之一：缓冲流的使用
+
+1- 对 --"字节"流，进行"缓冲流"的操作
 2- 作用：提供缓冲流来读取和写入
-     提高读写速度的原因：内部提供了一个缓冲区
+        提高读写速度的原因：内部提供了一个缓冲区
+
+3-处理流：就是"套接"在已有的流的基础上
  */
 public class File_Buffered_Input_And_OutPut {
     public void test() {
