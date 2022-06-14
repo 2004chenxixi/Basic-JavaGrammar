@@ -1,4 +1,4 @@
-package _366After.src.javeTeacher.IO.Buffered;
+package _366After.src.javeTeacher.IO.Buffered.file_buffered_input_and_outPut;
 
 import org.testng.annotations.Test;
 
