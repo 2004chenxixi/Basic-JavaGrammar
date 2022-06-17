@@ -17,6 +17,20 @@ public class Person {
         this.age = age;
     }
 
+    public String show(String nation) {
+        System.out.println("我的国籍是： " + nation);
+        return nation;
+    }
+
+    public String eat() {
+        return "吃饭";
+    }
+
+    //测试静态方法
+    public static void showDesc() {
+        System.out.println("我是一个可爱的人---测试静态方法");
+    }
+
     public String getName() {
         return name;
     }

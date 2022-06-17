@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import java.lang.reflect.Method;
 
 /*
-通过"反射"--创建对应的运行时类的对象（俗话：获取"自定义类中的属性和方法"）
+通过"反射"--创建对应的运行时类的对象的信息（俗话：获取"自定义类中的属性和方法和所有的一切"）
  */
 public class NewInstanceTest {
     @Test
@@ -16,6 +16,7 @@ public class NewInstanceTest {
         System.out.println("使用newInstance()这个方法，获取--自定义类中的属性和方法= " + person);
     }
 
+    // 查看运行时类的信息
     @Test
     public void test() {
         Class<Person> personClass = Person.class; //查看的是"Person"这个运行时类的信息
@@ -39,7 +40,9 @@ public class NewInstanceTest {
 
         //5-通过"反射"---> 获取"当前运行时类的--父类（也可以获得父类的泛型 ）"
 
-        //6-通过"反射"---> 获取"当前运行时类的--接口 ）"
+        //6-通过"反射"---> 获取"当前运行时类，父类的接口 ）"
+
+        //7- -通过"反射"---> 获取运行时类所在的包
 
 
     }
