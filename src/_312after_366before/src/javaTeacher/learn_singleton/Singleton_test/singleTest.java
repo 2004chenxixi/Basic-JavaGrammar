@@ -1,7 +1,7 @@
-package _312after_366before.src.javaTeacher.learn_singleton;
+package _312after_366before.src.javaTeacher.learn_singleton.Singleton_test;
 
 /*
-单例的设计模式：
+单例的设计模式：-- 饿汉式
 所谓类的单例设计模式，就是采取一定的方法保证在整个的软件系统中，对某个类只能存在一个对象的实例
  */
 public class singleTest {
