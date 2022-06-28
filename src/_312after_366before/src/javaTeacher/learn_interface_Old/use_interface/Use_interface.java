@@ -1,4 +1,4 @@
-package _312after_366before.src.javaTeacher.learn_interface.use_interface;
+package _312after_366before.src.javaTeacher.learn_interface_Old.use_interface;
 
 /*
 接口的使用:

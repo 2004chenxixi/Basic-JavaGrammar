@@ -1,4 +1,4 @@
-package _312after_366before.src.javaTeacher.learn_interface;
+package _312after_366before.src.javaTeacher.learn_interface_Old;
 
 /*
     对interface的测试题目

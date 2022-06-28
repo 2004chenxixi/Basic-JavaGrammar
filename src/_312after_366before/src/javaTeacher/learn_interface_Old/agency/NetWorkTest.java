@@ -1,4 +1,4 @@
-package _312after_366before.src.javaTeacher.learn_interface.agency;
+package _312after_366before.src.javaTeacher.learn_interface_Old.agency;
 /*
 接口的使用：---代理模式
 
